@@ -1,12 +1,13 @@
+import os
 import psycopg2
 
+DATABASE_URL = os.getenv("DATABASE_URL")
+
 conn = psycopg2.connect(
-    host="localhost",
-    database="bookbasket",
-    user="postgres",
-    password="admin@123"
+    DATABASE_URL,
+    sslmode="require"
 )
 
 cur = conn.cursor()
 
-print("Connected to BookBasket Database Successfully!")
+print("Connected to Railway PostgreSQL Successfully!")
