@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Manage Books | BookBasket</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#eef5ff;
+}
+
+.container{
+    width:95%;
+    margin:40px auto;
+}
+
+h1{
+    text-align:center;
+    color:#1e3a8a;
+    margin-bottom:30px;
+}
+
+.top-bar{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.add-btn{
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.add-btn:hover{
+    background:#1d4ed8;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+th,td{
+    padding:15px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+th{
+    background:#2563eb;
+    color:white;
+}
+
+img{
+    width:60px;
+    border-radius:6px;
+}
+
+.edit{
+    color:#2563eb;
+    text-decoration:none;
+    font-weight:bold;
+    margin-right:10px;
+}
+
+.delete{
+    color:red;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📚 Manage Books</h1>
+
+<div class="top-bar">
+    <a href="/admin" class="add-btn">⬅ Back</a>
+
+    <a href="/admin/add_book" class="add-btn">
+        ➕ Add New Book
+    </a>
+</div>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Cover</th>
+<th>Title</th>
+<th>Author</th>
+<th>Genre</th>
+<th>Price</th>
+<th>Actions</th>
+</tr>
+
+{% for book in books %}
+
+<tr>
+
+<td>{{book[0]}}</td>
+
+<td>
+<img src="/static/images/{{book[7]}}">
+</td>
+
+<td>{{book[1]}}</td>
+
+<td>{{book[2]}}</td>
+
+<td>{{book[3]}}</td>
+
+<td>₹{{book[4]}}</td>
+
+<td>
+<a href="/admin/edit/{{book[0]}}" class="edit">✏ Edit</a>
+<a href="/admin/delete/{{ book[0] }}" class="delete">
+    🗑 Delete
+</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>

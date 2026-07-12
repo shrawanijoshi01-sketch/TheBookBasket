@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BookBasket | Home</title>
+
+<style>
+.hero-quote{
+    margin-top:25px;
+    font-size:22px;
+    font-style:italic;
+    color:#0f766e;
+    font-weight:600;
+    line-height:1.6;
+}
+
+.hero-quote span{
+    display:block;
+    margin-top:8px;
+    font-size:17px;
+    color:#555;
+    font-style:normal;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 70px;
+    background:white;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:700;
+    color:#0f766e;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#333;
+    font-size:17px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#0f766e;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:70px;
+    background:linear-gradient(to right,#a8edea,#fed6e3);
+}
+
+.hero-text{
+    width:55%;
+}
+
+.hero-text h1{
+    font-size:60px;
+    color:#084c61;
+    margin-bottom:20px;
+}
+
+.hero-text p{
+    font-size:22px;
+    color:#444;
+    line-height:1.8;
+}
+
+/* ================= BUTTONS ================= */
+
+.nav-buttons{
+    margin-top:35px;
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.nav-btn{
+    text-decoration:none;
+    padding:12px 24px;
+    border-radius:50px;
+    font-size:17px;
+    font-weight:bold;
+    transition:.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.browse{
+    background:#0f766e;
+    color:white;
+}
+
+.browse:hover{
+    background:#09554f;
+    transform:translateY(-3px);
+}
+
+.cart{
+    background:white;
+    color:#0f766e;
+    border:2px solid #0f766e;
+}
+
+.cart:hover{
+    background:#0f766e;
+    color:white;
+    transform:translateY(-3px);
+}
+
+.logout{
+    background:#ff8c42;
+    color:white;
+}
+
+.logout:hover{
+    background:#ff6b00;
+    transform:translateY(-3px);
+}
+
+/* ================= IMAGE ================= */
+
+.hero-image img{
+    width:420px;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+/* ================= BOOKS ================= */
+
+.section-title{
+    text-align:center;
+    margin-top:60px;
+    font-size:38px;
+    color:#084c61;
+}
+
+.books{
+    display:flex;
+    justify-content:center;
+    gap:35px;
+    margin:50px;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:240px;
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
+
+.card h3{
+    padding:15px;
+    color:#0f766e;
+}
+
+.card p{
+    padding:0 15px 15px;
+    color:#555;
+}
+
+.card button{
+    width:90%;
+    margin:15px;
+    padding:12px;
+    border:none;
+    background:#ff8c42;
+    color:white;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.card button:hover{
+    background:#ff6b00;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    margin-top:60px;
+    background:#0f766e;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+footer h3{
+    margin-bottom:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">📚 BookBasket</div>
+
+    <ul class="nav-links">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/books">Browse Books</a></li>
+        <li><a href="/cart">My Cart</a></li>
+        <li><a href="/admin/orders">Orders</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>Discover Your Next Favorite Book</h1>
+
+<p>
+
+Welcome to <b>BookBasket</b>, your one-stop online bookstore.
+
+Explore thousands of bestselling novels, educational books,
+
+self-help books, biographies and much more.
+
+</p>
+<div class="hero-quote">
+    “There's no friend as loyal as a book.”
+    <span>— Ernest Hemingway</span>
+</div>
+
+<div class="nav-buttons">
+
+<a href="/books" class="nav-btn browse">
+📚 Browse Books
+</a>
+
+<a href="/cart" class="nav-btn cart">
+🛒 My Cart
+</a>
+
+<a href="/logout" class="nav-btn logout">
+🚪 Logout
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=700"
+alt="Books">
+
+</div>
+
+</section>
+
+<!-- FEATURED BOOKS -->
+
+<h2 class="section-title">
+📖 Featured Books
+</h2>
+
+<div class="books">
+
+<div class="card">
+
+<img src="https://covers.openlibrary.org/b/id/10523338-L.jpg">
+
+<h3>Atomic Habits</h3>
+
+<p>Build good habits and break bad ones.</p>
+
+<button>Add to Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://covers.openlibrary.org/b/id/10909258-L.jpg">
+
+<h3>Rich Dad Poor Dad</h3>
+
+<p>Learn the fundamentals of financial freedom.</p>
+
+<button>Add to Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://covers.openlibrary.org/b/id/12614902-L.jpg">
+
+<h3>The Alchemist</h3>
+
+<p>A beautiful journey of dreams and destiny.</p>
+
+<button>Add to Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://covers.openlibrary.org/b/id/10594765-L.jpg">
+
+<h3>Think Like a Monk</h3>
+
+<p>Train your mind for peace and purpose.</p>
+
+<button>Add to Cart</button>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+<h3>📚 BookBasket</h3>
+
+<p>Your Favourite Online Book Store</p>
+
+<br>
+
+<p>© 2026 BookBasket | Read • Learn • Grow</p>
+
+</footer>
+
+</body>
+</html>

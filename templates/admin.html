@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BookBasket Admin</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+
+    background:#eef5ff;
+}
+
+.container{
+
+    width:90%;
+    max-width:1000px;
+    margin:60px auto;
+}
+
+h1{
+
+    text-align:center;
+    color:#1e3a8a;
+    margin-bottom:15px;
+}
+
+.subtitle{
+
+    text-align:center;
+    color:#555;
+    margin-bottom:40px;
+    font-size:18px;
+}
+
+.grid{
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.card{
+
+    background:white;
+    padding:35px;
+    border-radius:18px;
+    text-align:center;
+    text-decoration:none;
+    color:#1f2937;
+    box-shadow:0 8px 18px rgba(0,0,0,.12);
+    transition:.3s;
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+}
+
+.icon{
+
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.card h2{
+
+    margin-bottom:10px;
+}
+
+.card p{
+
+    color:#666;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📚 BookBasket Admin Panel</h1>
+
+<p class="subtitle">
+Manage your bookstore with ease.
+</p>
+
+<div class="grid">
+
+<a href="/admin/books" class="card">
+<div class="icon">📚</div>
+<h2>Manage Books</h2>
+<p>Add, edit or delete books.</p>
+</a>
+
+<a href="/admin/orders" class="card">
+<div class="icon">📦</div>
+<h2>View Orders</h2>
+<p>See all customer orders.</p>
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Customer Orders | BookBasket</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#eef5ff;
+}
+
+.container{
+    width:95%;
+    margin:40px auto;
+}
+
+h1{
+    text-align:center;
+    color:#1e3a8a;
+    margin-bottom:30px;
+}
+
+.top-bar{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.back-btn{
+    background:#2563eb;
+    color:white;
+    padding:12px 22px;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.back-btn:hover{
+    background:#1d4ed8;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 6px 15px rgba(0,0,0,.1);
+}
+
+th,td{
+    padding:15px;
+    border-bottom:1px solid #ddd;
+    text-align:center;
+}
+
+th{
+    background:#2563eb;
+    color:white;
+}
+
+tr:hover{
+    background:#f8fbff;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📦 Customer Orders</h1>
+
+<div class="top-bar">
+
+<a href="/admin" class="back-btn">
+⬅ Back to Admin
+</a>
+
+</div>
+
+<table>
+
+<tr>
+    <th>Order ID</th>
+    <th>Customer</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Payment</th>
+    <th>Total</th>
+    <th>Date</th>
+</tr>
+
+{% for order in orders %}
+
+<tr>
+
+<td>{{order[0]}}</td>
+<td>{{order[1]}}</td>
+<td>{{order[2]}}</td>
+<td>{{order[3]}}</td>
+<td>{{order[4]}}</td>
+<td>₹{{order[5]}}</td>
+<td>{{order[6]}}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+</div>
+
+</body>
+
+</html>

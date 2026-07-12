@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Add Book | BookBasket</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#eef5ff;
+}
+
+.container{
+    width:500px;
+    margin:50px auto;
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+h1{
+    text-align:center;
+    color:#1e3a8a;
+    margin-bottom:25px;
+}
+
+input, textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:18px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+}
+
+textarea{
+    resize:vertical;
+    height:120px;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:18px;
+    text-decoration:none;
+    color:#2563eb;
+    font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>➕ Add New Book</h1>
+
+<form action="/admin/add_book" method="post">
+
+<input type="text" name="title" placeholder="Book Title" required>
+
+<input type="text" name="author" placeholder="Author" required>
+
+<input type="text" name="genre" placeholder="Genre" required>
+
+<input type="number" name="price" placeholder="Price" required>
+<input type="number" name="stock" placeholder="Stock" required>
+
+<input type="text" name="image" placeholder="Image filename (e.g. hp.jpg)" required>
+
+<textarea name="description" placeholder="Book Description" required></textarea>
+
+<button type="submit">
+Add Book
+</button>
+
+</form>
+
+<a href="/admin/books" class="back">⬅ Back to Manage Books</a>
+
+</div>
+
+</body>
+</html>

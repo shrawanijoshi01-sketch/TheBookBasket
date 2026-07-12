@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BookBasket | Browse Books</title>
+
+<style>
+.browse-quote{
+
+    text-align:center;
+    font-size:24px;
+    font-weight:600;
+    font-style:italic;
+    color:#0f766e;
+    margin-top:12px;
+    margin-bottom:35px;
+
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+}
+
+/* Heading */
+
+h1{
+    text-align:center;
+    margin:40px 0 20px;
+    color:#0f766e;
+}
+
+/* Search Bar */
+
+.search-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    margin-bottom:25px;
+}
+
+.search-box{
+    width:450px;
+    padding:14px 20px;
+    border:2px solid #0f766e;
+    border-radius:30px;
+    font-size:16px;
+    outline:none;
+}
+
+.search-box:focus{
+    box-shadow:0 0 10px rgba(15,118,110,.3);
+}
+
+.search-btn{
+    padding:14px 30px;
+    background:#0f766e;
+    color:white;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.search-btn:hover{
+    background:#115e59;
+}
+
+/* Categories */
+
+.categories{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:40px;
+}
+
+.cat-btn{
+    padding:12px 24px;
+    border:2px solid #0f766e;
+    border-radius:30px;
+    background:white;
+    color:#0f766e;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+    width:auto;
+}
+
+.cat-btn:hover{
+    background:#0f766e;
+    color:white;
+}
+
+.cat-btn.active{
+    background:#0f766e;
+    color:white;
+}
+
+/* Cards */
+
+.container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+    padding:20px 40px 50px;
+}
+
+.card{
+    width:300px;
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+}
+
+.content{
+    padding:20px;
+}
+
+.card h2{
+    color:#0f766e;
+    margin-bottom:10px;
+}
+
+.card p{
+    margin:8px 0;
+    color:#555;
+    line-height:1.5;
+}
+
+.price{
+    font-size:22px;
+    color:#0f766e;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+/* Buttons */
+
+.details-btn,
+.cart-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:12px;
+    transition:.3s;
+}
+
+.details-btn{
+    background:#0f766e;
+}
+
+.details-btn:hover{
+    background:#115e59;
+}
+
+.cart-btn{
+    background:#ff8a3d;
+}
+
+.cart-btn:hover{
+    background:#ff6b1a;
+}
+
+a{
+    text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>📚 Browse Books</h1>
+<p class="browse-quote">
+    📖 Buy the book. Sleep can wait.
+</p>
+<!-- Search -->
+
+<form action="/books" method="get" class="search-container">
+
+    <input
+        type="text"
+        name="search"
+        class="search-box"
+        placeholder="🔍 Search by title, author or genre..."
+        value="{{ search if search else '' }}"
+    >
+
+    <button type="submit" class="search-btn">
+        Search
+    </button>
+
+</form>
+
+<!-- Categories -->
+
+<div class="categories">
+
+    <a href="/books">
+        <button class="cat-btn">All</button>
+    </a>
+
+    <a href="/books?genre=Fantasy">
+        <button class="cat-btn">Fantasy</button>
+    </a>
+
+    <a href="/books?genre=Romance">
+        <button class="cat-btn">Romance</button>
+    </a>
+
+    <a href="/books?genre=Mystery">
+        <button class="cat-btn">Mystery</button>
+    </a>
+
+    <a href="/books?genre=Biography">
+        <button class="cat-btn">Biography</button>
+    </a>
+
+    <a href="/books?genre=Self Help">
+        <button class="cat-btn">Self Help</button>
+    </a>
+
+    <a href="/books?genre=Science Fiction">
+        <button class="cat-btn">Science Fiction</button>
+    </a>
+
+</div>
+<!-- Books -->
+
+<div class="container">
+
+{% for book in books %}
+
+<div class="card">
+
+    <img src="/static/images/{{ book[7] }}" alt="{{ book[1] }}">
+
+    <div class="content">
+
+        <h2>{{ book[1] }}</h2>
+
+        <p><b>Author:</b> {{ book[2] }}</p>
+
+        <p><b>Genre:</b> {{ book[3] }}</p>
+
+        <p>{{ book[6] }}</p>
+
+        <p class="price">₹ {{ book[4] }}</p>
+
+        <p><b>Stock:</b> {{ book[5] }}</p>
+
+        <a href="/book/{{ book[0] }}">
+            <button class="details-btn">
+                📖 View Details
+            </button>
+        </a>
+
+        <form action="/add_to_cart/{{ book[0] }}" method="post">
+
+            <button type="submit" class="cart-btn">
+                🛒 Add to Cart
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+
+</html>
