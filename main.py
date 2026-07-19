@@ -7,10 +7,11 @@ from fastapi import FastAPI, Request, Form
 from typing import Optional
 from database import conn, cur
 
-app = FastAPI()
+import os
+
 app.add_middleware(
     SessionMiddleware,
-    secret_key="bookbasket123"
+    secret_key=os.getenv("SECRET_KEY", "bookbasket123")
 )
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
